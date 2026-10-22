@@ -1,15 +1,15 @@
 from ultralytics import YOLO
 
 def main():
-    # 1. 載入模型（初次執行會自動下載輕量版的預訓練模型 yolo11n.pt 或對應版本）
-    model = YOLO("yolo11n.pt")
+    # 載入你上次訓練好的 best.pt 當作起手式，讓模型「溫故知新」
+    model = YOLO("runs/detect/train-3/weights/best.pt")
 
-    # 2. 開始訓練
+    # 開始新一輪訓練
     results = model.train(
-        data="data.yaml",    # 指向根目錄的設定檔
-        epochs=50,           # 訓練輪數（可先設 50 測試，之後再依收斂狀況調整）
-        imgsz=640,           # 輸入圖片解析度
-        batch=16             # 批次大小（如果電腦顯示卡 VRAM 較小，可改為 8）
+        data="data.yaml",    
+        epochs=30,           # 增量訓練通常不需要設太多輪（例如 30~50 輪即可）
+        imgsz=640,           
+        batch=16             
     )
 
 if __name__ == '__main__':
