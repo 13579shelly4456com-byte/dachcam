@@ -7,7 +7,7 @@ def main():
     # 開始新一輪訓練
     results = model.train(
         data="data.yaml",    
-        epochs=30,           # 增量訓練通常不需要設太多輪（例如 30~50 輪即可）
+        epochs=300,          
         imgsz=640,           
         batch=16             
     )
