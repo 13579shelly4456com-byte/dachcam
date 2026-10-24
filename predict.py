@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 def main():
-    # 1. 載入你最新訓練好的權重（請確認資料夾編號是 train-3）
+    
     model = YOLO("runs/detect/train-3/weights/best.pt")
 
     # 2. 對 test 資料夾裡面的圖片進行預測
